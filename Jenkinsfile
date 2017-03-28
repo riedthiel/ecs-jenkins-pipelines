@@ -12,7 +12,7 @@ node {
     }
 
   stage 'Insert Build Number into Parameters'
-    sh 'sed -i 's/001/$BUILD_NUMBER/g' file.txt'
+    sh 'sed -i "s/001/$BUILD_NUMBER/g" file.txt'
 
   stage 'Create/Update Infrastructure'
     String  s3bucket = "jw-ia-dev"
