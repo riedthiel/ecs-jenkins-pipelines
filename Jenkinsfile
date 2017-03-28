@@ -3,4 +3,3 @@ node {
 
   echo "Hello World"
   }
-}
