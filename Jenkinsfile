@@ -22,7 +22,7 @@ node {
       result = sh(returnStdout: true, script: 'aws cloudformation describe-stacks --stack-name Nginx-ECS --region us-east-1 --query "Stacks[*].StackStatus" --output text')
       if (result.contains("ERROR") || result.contains("ROLLBACK")) {
          error: "Error in Stack Build"
-      } else if (result.contains('COMPLETE') {
+      } else if (result.contains('COMPLETE')) {
         break;
       }
       sleep: 5
