@@ -1,6 +1,6 @@
 node {
   def stackname = 'Nginx-ECS'
-  def s3-bucket = 'jw-ia-dev'
+  def s3bucket = 'jw-ia-dev'
   stage 'Checkout'
     checkout scm
 
