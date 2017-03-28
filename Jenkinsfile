@@ -1,6 +1,6 @@
+String stackname = 'Nginx-ECS'
+String  s3bucket = 'jw-ia-dev'
 node {
-  String stackname = 'Nginx-ECS'
-  String  s3bucket = 'jw-ia-dev'
   stage 'Checkout'
     checkout scm
 
