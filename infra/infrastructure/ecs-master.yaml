@@ -93,6 +93,8 @@ Resources:
                 DesiredCount:  !Ref DesiredCount
                 TargetGroup: !GetAtt ALB.Outputs.TargetGroup
                 Cluster: !GetAtt ECS.Outputs.Cluster
+                Repository: !Ref Repository
+                RepositoryTag: !Ref RepositoryTag
 
 # Outputs:
 #
