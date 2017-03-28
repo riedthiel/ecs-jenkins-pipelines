@@ -3,5 +3,5 @@ node {
     checkout scm
 
   stage 'Docker  configuration'
-    sh 'aws ecr get-login --region us-east-1 | xargs xargs'
+    sh 'aws ecr get-login --region us-east-1 | sudo args xargs'
   }
