@@ -1,7 +1,4 @@
 Parameters:
-  RepositoryTag:
-    Type: String
-    Default: "002"
 
   DesiredCount:
     Type: Number
@@ -16,6 +13,10 @@ Parameters:
   Repository:
     Type: String
     Default: "mynginx"
+
+  RepositoryTag:
+    Type: String
+    Default: "001"
 
 
 Resources:

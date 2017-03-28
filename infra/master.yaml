@@ -35,6 +35,16 @@ Parameters:
         Type: String
         Default: "acom-sde-cfn"
 
+    Repository:
+        Description: Repository to assisgn to services
+        Type: String
+        Default: "mynginx"
+
+    RepositoryTag:
+        Description: Bucket location of CF Templates
+        Type: String
+        Default: "001"
+
 Resources:
 
     SecurityGroups:
@@ -57,6 +67,8 @@ Resources:
                 LoadBalancerSecurityGroup: !GetAtt SecurityGroups.Outputs.ExternalLoadBalancerSecurityGroup
                 ECSHostSecurityGroup: !GetAtt SecurityGroups.Outputs.ExternalECSHostSecurityGroup
                 TemplateBucket: !Ref TemplateBucket
+                Repository: !Ref Repository
+                RepositoryTag: !Ref RepositoryTag
 
     internal:
         Type: AWS::CloudFormation::Stack
@@ -70,3 +82,5 @@ Resources:
                 LoadBalancerSecurityGroup: !GetAtt SecurityGroups.Outputs.InternalLoadBalancerSecurityGroup
                 ECSHostSecurityGroup: !GetAtt SecurityGroups.Outputs.InternalECSHostSecurityGroup
                 TemplateBucket: !Ref TemplateBucket
+                Repository: !Ref Repository
+                RepositoryTag: !Ref RepositoryTag

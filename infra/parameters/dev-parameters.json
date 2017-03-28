@@ -14,5 +14,13 @@
     {
         "ParameterKey": "TemplateBucket",
         "ParameterValue": "jw-ia-dev"
+    },
+    {
+        "ParameterKey": "Repository",
+        "ParameterValue": "mynginx"
+    },
+    {
+        "ParameterKey": "RepositoryTag",
+        "ParameterValue": "001"
     }
 ]
