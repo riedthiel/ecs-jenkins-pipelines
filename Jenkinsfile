@@ -25,6 +25,7 @@ node {
       } else if (result.contains('COMPLETE')) {
         break;
       }
+      echo "Status ${result}"
       sleep: 5
     }
 }
