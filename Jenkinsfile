@@ -15,4 +15,15 @@ node {
     String  s3bucket = "jw-ia-dev"
     sh 'aws s3 sync ./infra/ s3://jw-ia-dev/ --exclude ".*" '
     sh 'aws cloudformation create-stack --stack-name Nginx-ECS --template-url https://s3.amazonaws.com/jw-ia-dev/master.yaml --parameters file://./infra/parameters/dev-parameters.json --capabilities CAPABILITY_NAMED_IAM  --region us-east-1  --disable-rollback'
+
+  stage 'Wait for Completion'
+    result = sh(returnStdout: true, script: 'aws cloudformation describe-stacks --stack-name Nginx-ECS --region us-east-1 --query "Stacks[*].StackStatus" --output text'))
+    do {
+      result = sh(returnStdout: true, script: 'aws cloudformation describe-stacks --stack-name Nginx-ECS --region us-east-1 --query "Stacks[*].StackStatus" --output text'))
+      if (result.contains("ERROR") || result.contains("ROLLBACK") {
+         error: "Error in Stack Build"
+      }
+
+
+    } while (!result.contains('COMPLETE')
   }
